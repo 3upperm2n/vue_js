@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>
+		
+	</title>
+
+</head>
+
+
+
+<body>
+	<div id='root'>
+		<!-- <input type="text" id="input"> -->
+		<input type="text" id="input" v-model="message">
+
+		<p>the value of the input message is: {{ message }}</p>
+	</div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+	<script>
+		let data = {
+			message: 'what is up?'
+		};
+
+		// // binding using dom
+		// document.querySelector('#input').value = data.message;
+
+
+		// data binding using vue
+		new Vue({
+			el: '#root',
+			data: data
+		})
+
+	</script>
+</body>
+
+
+</html>
+
