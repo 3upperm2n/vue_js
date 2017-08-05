@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>
+		
+	</title>
+
+</head>
+
+
+
+<body>
+	<div id='root'>
+		{{ foo }} {{ user }}
+		<ul>
+		<!-- <li v-for="name in names">{{ name }}</li> -->
+		<li v-for="name in names" v-text="name"></li>
+		</ul>
+
+
+		<input id="input" type="text">
+		<button id="button">Add Name</button>
+	</div>
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+	<script>
+		let data = {
+			message: 'what is up?'
+		};
+
+		// // binding using dom
+		// document.querySelector('#input').value = data.message;
+
+
+		// data binding using vue
+		var app = new Vue({
+			el: '#root',
+			data: {
+				foo: 'bar',
+				user: 'jonathan',
+				names: ['chan', 'fen', 'shui']
+			},
+
+			mounted() {
+				// alert('ready');
+				document.querySelector('#button').addEventListener('click', () => { 
+				let name = document.querySelector('#input');
+				app.names.push(name.value);
+				name.value='';
+			}
+		);
+			}
+		})
+
+		// document.querySelector('#button').addEventListener('click', () => { 
+		// 		// let name = document.querySelector('#input').value;
+		// 		// app.names.push(name);
+
+		// 		let name = document.querySelector('#input');
+		// 		app.names.push(name.value);
+		// 		name.value='';
+		// 	}
+		// );
+
+
+
+
+	</script>
+</body>
+
+
+</html>
+
